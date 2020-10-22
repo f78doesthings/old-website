@@ -1,0 +1,22 @@
+header {
+    background-color: #9993;
+}
+
+body {
+    background-color: #444;
+    color: #eee;
+}
+
+a.sidenav-trigger {
+    width: 56px;
+    text-align: center;
+    margin-left: 0;
+}
+
+.sidenav {
+    background-color: #555;
+}
+
+.sidenav a {
+    color: #eee !important;
+}

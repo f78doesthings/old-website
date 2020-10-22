@@ -3,9 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/img/favicon.png">
     <title>Work in Progress</title>
 </head>
 <body>
-    <p>There won't be much to see here for a while until everything is set up.</p>
+    <div class="navbar-fixed">
+        <nav class="grey darken-2" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="/" class="brand-logo">f78</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" class="waves-effect">placeholder 1</a></li>
+                    <li><a href="#" class="waves-effect">placeholder 2</a></li>
+                </ul>
+                
+                <a class="sidenav-trigger show-on-large waves-effect" href="#!" data-target="sidenav">
+                    <i class="material-icons">menu</i>
+                </a>
+            </div>
+        </nav>
+    </div>
+    <ul id="sidenav" class="sidenav">
+        <li><a href="#" class="waves-effect">placeholder 1</a></li>
+        <li><a href="#" class="waves-effect">placeholder 2</a></li>
+    </ul>
+
+    <header class="section">
+        <h1 class="center">Header</h1><br>
+    </header>
+    
+    <main class="section">
+        <article class="container">
+            <p>Slowly but surely this website will take shape. There's not much to see right now though.</p>
+        </article>
+    </main>
+    
+    <script>
+        if (window.M) M.AutoInit()
+    </script>
 </body>
 </html>
