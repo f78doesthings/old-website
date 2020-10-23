@@ -1,22 +1,31 @@
+.-dark {
+    background-color: #333;
+    color: #fff;
+}
+
+.-animate {
+    transition: background-color 500ms ease, color 1000ms ease;
+}
+
 header {
     background-color: #9993;
 }
 
-body {
-    background-color: #444;
-    color: #eee;
+nav {
+    background-color: #555e;
 }
 
 a.sidenav-trigger {
     width: 56px;
     text-align: center;
     margin-left: 0;
+    border-radius: 32px;
 }
 
-.sidenav {
-    background-color: #555;
+.sidenav a, .sidenav i.material-icons {
+    color: #fff !important;
 }
 
-.sidenav a {
-    color: #eee !important;
+.sidenav .subheader {
+    color: #aaa !important;
 }
