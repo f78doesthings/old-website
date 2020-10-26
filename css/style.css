@@ -1,10 +1,5 @@
-.-dark {
-    background-color: #333;
-    color: #fff;
-}
-
 .-animate {
-    transition: background-color 500ms ease, color 1000ms ease;
+    transition: background-color 500ms ease, color 500ms ease;
 }
 
 header {
@@ -15,6 +10,19 @@ nav {
     background-color: #555e;
 }
 
+.sidenav a, .sidenav i.material-icons {
+    color: #fff !important;
+}
+
+.sidenav .subheader {
+    color: #aaa !important;
+    margin-top: 6px;
+}
+
+.sidenav a:not(.subheader) {
+    padding-left: 48px;
+}
+
 a.sidenav-trigger {
     width: 56px;
     text-align: center;
@@ -22,10 +30,50 @@ a.sidenav-trigger {
     border-radius: 32px;
 }
 
-.sidenav a, .sidenav i.material-icons {
-    color: #fff !important;
+body {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    /* default / fallback colours */
+    background-color: #333;
+    color: #fff;
 }
 
-.sidenav .subheader {
-    color: #aaa !important;
+h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader {
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+}
+
+.input[type=color] {
+    border: none;
+    background-color: #000;
+}
+
+.brand-logo img {
+    height: 28px;
+}
+
+.modal table {
+    max-width: 400px;
+    margin: auto;
+}
+
+.modal td {
+    padding: 5px;
+    text-align: right;
+}
+
+.modal td p {
+    text-align: left;
+    margin: 0;
+}
+
+.modal td .switch label {
+    display: -webkit-box; 
+    display: -webkit-flex; 
+    display: -ms-flexbox; 
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    justify-content: right;
 }
