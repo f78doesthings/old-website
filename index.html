@@ -30,10 +30,7 @@
     <div class="navbar-fixed">
         <nav role="navigation">
             <div class="nav-wrapper container">
-                <a href="/" class="brand-logo"><img src="/img/favicon.png" alt="f78" class="circle"> f78</a>
-                <ul class="right">
-                    <li><a href="#" class="waves-effect btn-floating grey darken-1"><i class="material-icons -theme-switcher">brightness_6</i></a></li>
-                </ul>
+                <a href="/" class="brand-logo center"><img src="/img/favicon.png" alt="f78" class="circle"> f78</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="#" class="waves-effect">placeholder 1</a></li>
                     <li><a href="#" class="waves-effect">placeholder 2</a></li>
@@ -45,68 +42,59 @@
             </div>
         </nav>
     </div>
-    <ul id="sidenav" class="sidenav grey darken-3">
+    <ul id="sidenav" class="sidenav">
         <li><a class="subheader">Pages</a></li>
         <li><a href="#" class="waves-effect">placeholder 1</a></li>
         <li><a href="#" class="waves-effect">placeholder 2</a></li>
-        <li><a class="subheader">Appearance</a></li>
-        <li><a class="waves-effect -theme-switcher"><i class="material-icons">brightness_6</i>Switch Theme</a></li>
-        <li><a class="waves-effect -theme-settings sidenav-close"><i class="material-icons">settings_brightness</i>Theme Settings...</a></li>
+        <li><a class="subheader">Preferences</a></li>
+        <li><a class="waves-effect -pref-appearance sidenav-close"><i class="material-icons">settings_brightness</i>Appearance</a></li>
     </ul>
-    <div id="theme-settings" class="modal bottom-sheet grey darken-3 white-text">
+    <div id="-pref-appearance" class="modal bottom-sheet">
         <div class="modal-content">
-            <h4 class="center">Theme Settings (experimental)</h4>
+            <h4 class="center">Appearance Preferences (beta)</h4>
             <table><tbody>
                 <tr>
                     <td><p>Theme</p></td>
                     <td>
-                        <div class="switch">
-                            <label>
-                                <i class="material-icons">brightness_2</i>
-                                <input type="checkbox" id="-theme-settings-switch">
-                                <span class="lever"></span>
-                                <i class="material-icons">brightness_5</i>
-                            </label>
-                        </div>
+                        <select id="-pref-appearance-theme">
+                            <option value="dark" selected>Dark</option>
+                            <option value="light">Light</option>
+                            <option value="amoled">AMOLED</option>
+                            <option value="custom">Custom</option>
+                        </select>
                     </td>
                 </tr>
-                <tr>
-                    <td><p>Animate theme transition</p></td>
-                    <td>
-                        <div class="switch">
-                            <label>
-                                <i class="material-icons">close</i>
-                                <input type="checkbox" id="-theme-settings-animate">
-                                <span class="lever"></span>
-                                <i class="material-icons">check</i>
-                            </label>
-                        </div>
-                    </td>
+                <tr id="-pref-appearance-custom">
+                    <td><p>Custom theme colours</p></td>
+                    <td><table><tbody>
+                        <tr>
+                            <td><p><label>Background</label></p></td>
+                            <td><input type="color" id="-pref-appearance-custom-background" value="#ffffff"></td>
+                        </tr>
+                        <tr>
+                            <td><p><label>Text</label></p></td>
+                            <td><input type="color" id="-pref-appearance-custom-text" value="#222222"></td>
+                        </tr>
+                        <tr>
+                            <td><p><label>Header and Popups</label></p></td>
+                            <td><input type="color" id="-pref-appearance-custom-header" value="#eeeeee"></td>
+                        </tr>
+                        <tr>
+                            <td><p><label>Navbar and Dropdowns</label></p></td>
+                            <td><input type="color" id="-pref-appearance-custom-nav" value="#dddddd"></td>
+                        </tr>
+                    </tbody></table></td>
                 </tr>
                 <tr>
-                    <td><p>Dark theme colours</p></td>
+                    <td><p id="-pref-appearance-reset-message">Reset appearance preferences</p></td>
                     <td>
-                        <input type="color" id="-theme-settings-dbg" title="Dark theme background colour" value="#333333">
-                        <input type="color" id="-theme-settings-dtxt" title="Dark theme text colour" value="#eeeeee">
-                    </td>
-                </tr>
-                <tr>
-                    <td><p>Light theme colours</p></td>
-                    <td>
-                        <input type="color" id="-theme-settings-lbg" title="Light theme background colour" value="#ffffff">
-                        <input type="color" id="-theme-settings-ltxt" title="Light theme text colour" value="#222222">
-                    </td>
-                </tr>
-                <tr>
-                    <td><p id="-theme-settings-reset-message">Reset theme settings</p></td>
-                    <td>
-                        <button class="btn red waves-effect" id="-theme-settings-reset">Reset</button>
+                        <button class="btn orange darken-1 waves-effect" id="-pref-appearance-reset">Reset</button>
                     </td>
                 </tr>
             </tbody></table>
         </div>
-        <div class="modal-footer grey darken-3" style="text-align: center;">
-            <a href="#!" class="modal-close waves-effect btn-flat white-text">Close</a>
+        <div class="modal-footer" style="text-align: center;">
+            <a href="#!" class="modal-close waves-effect btn red">Close</a>
         </div>
     </div>
 
@@ -124,9 +112,9 @@
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/js/theme.js"></script>
     <script>
         if (window.M) M.AutoInit();
     </script>
+    <script src="/js/theme.js"></script>
 </body>
 </html>

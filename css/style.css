@@ -1,21 +1,24 @@
-.-animate {
-    transition: background-color 500ms ease, color 500ms ease;
+body {
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    /* fallback colours */
+    background-color: #333;
+    color: #fff;
 }
 
 header {
-    background-color: #9993;
+    background-color: #444;
 }
 
 nav {
-    background-color: #555e;
+    background-color: #555;
 }
 
 .sidenav a, .sidenav i.material-icons {
-    color: #fff !important;
+    color: inherit !important;
 }
 
 .sidenav .subheader {
-    color: #aaa !important;
+    opacity: 50%;
     margin-top: 6px;
 }
 
@@ -30,16 +33,13 @@ a.sidenav-trigger {
     border-radius: 32px;
 }
 
-body {
-    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    /* default / fallback colours */
-    background-color: #333;
-    color: #fff;
-}
-
 h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader {
     font-family: Montserrat, sans-serif;
     font-weight: 400;
+}
+
+nav a {
+    color: inherit !important;
 }
 
 .input[type=color] {
@@ -48,17 +48,27 @@ h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader {
 }
 
 .brand-logo img {
-    height: 28px;
+    height: 24px;
 }
 
+/* Overrides for modals */
+.modal.bottom-sheet {
+    max-height: 100%;
+}
 .modal table {
-    max-width: 400px;
+    max-width: 600px;
     margin: auto;
+    table-layout: fixed;
+}
+
+.modal tr {
+    border-bottom: none;
 }
 
 .modal td {
     padding: 5px;
-    text-align: right;
+    text-align: center;
+    
 }
 
 .modal td p {
@@ -67,13 +77,21 @@ h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader {
 }
 
 .modal td .switch label {
-    display: -webkit-box; 
-    display: -webkit-flex; 
-    display: -ms-flexbox; 
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    justify-content: right;
+    justify-content: center;
+}
+
+.modal .select-dropdown {
+    color: inherit;
+}
+
+.modal .dropdown-content li {
+    min-height: unset;
+}
+
+.modal .dropdown-content li>span {
+    padding: 8px 16px;
+}
+
+.modal .select-wrapper .caret {
+    fill: #999;
 }

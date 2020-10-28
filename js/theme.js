@@ -1,81 +1,110 @@
-let theme = localStorage.getItem("theme") || "dark"
-let animate = localStorage.getItem("theme-animate") || "false"
-let dbg = localStorage.getItem("theme-dbg") || "#333333"
-let dtxt = localStorage.getItem("theme-dtxt") || "#eeeeee"
-let lbg = localStorage.getItem("theme-lbg") || "#ffffff"
-let ltxt = localStorage.getItem("theme-ltxt") || "#222222"
+let theme = localStorage.getItem("pref-appearance-theme") || "dark"
+let animate = localStorage.getItem("pref-appearance-animate") || "false"
 
 let time = 0
 let reset = 0
 
-function switchTheme(toggle = 1) {
-    if (toggle === 1) theme = theme === "dark" ? "light" : "dark"
-    else if (toggle === 2) {
-        dbg = $('#-theme-settings-dbg').val() || "#333333"
-        dtxt = $('#-theme-settings-dtxt').val() || "#eeeeee"
-        lbg = $('#-theme-settings-lbg').val() || "#ffffff"
-        ltxt = $('#-theme-settings-ltxt').val() || "#222222"
-        localStorage.setItem("theme-dbg", dbg)
-        localStorage.setItem("theme-dtxt", dtxt)
-        localStorage.setItem("theme-lbg", lbg)
-        localStorage.setItem("theme-ltxt", ltxt)
-    } else {
-        $('#-theme-settings-dbg').val(dbg)
-        $('#-theme-settings-dtxt').val(dtxt)
-        $('#-theme-settings-lbg').val(lbg)
-        $('#-theme-settings-ltxt').val(ltxt)
-    }
-    $('#-theme-settings-switch')[0].checked = theme === "light"
-    if (theme === "dark") {
-        $("body").css("background-color", dbg)
-        $("body").css("color", dtxt)
-    } else {
-        $("body").css("background-color", lbg)
-        $("body").css("color", ltxt)
-    }
-    localStorage.setItem("theme", theme)
-}
-function toggleAnimate(toggle = true) {
-    if (toggle) animate = animate === "false" ? "true" : "false"
-    $('#-theme-settings-animate')[0].checked = animate === "true"
-    $("body").toggleClass("-animate", animate === "true")
-    localStorage.setItem("theme-animate", animate)
-}
-switchTheme(0)
-
-function themeSettings() {
-    $('.modal#theme-settings').modal('open')
+const themes = {
+    dark: {
+        background: "#333",
+        text: "#eee",
+        header: "#444",
+        nav: "#555",
+    },
+    light: {
+        background: "#fff",
+        text: "#222",
+        header: "#eee",
+        nav: "#ddd",
+    },
+    amoled: {
+        background: "#000",
+        text: "#ccc",
+        header: "#111",
+        nav: "#222",
+    },
+    custom: {
+        background: localStorage.getItem("pref-appearance-custom-background") || "#ffffff",
+        text: localStorage.getItem("pref-appearance-custom-text") || "#222222",
+        header: localStorage.getItem("pref-appearance-custom-header") || "#eeeeee",
+        nav: localStorage.getItem("pref-appearance-custom-nav") || "#dddddd",
+    },
 }
 
-$('.-theme-switcher').mousedown(() => time = Date.now())
-$('.-theme-switcher').mouseup(() => {
-    const held = Date.now() - time
-    if (held >= 500) themeSettings()
-    else switchTheme()
-})
-$('#-theme-settings-switch').click(() => switchTheme())
-$('#-theme-settings-animate').click(toggleAnimate)
-$('#-theme-settings-dbg').on("input", () => switchTheme(2))
-$('#-theme-settings-dtxt').on("input", () => switchTheme(2))
-$('#-theme-settings-lbg').on("input", () => switchTheme(2))
-$('#-theme-settings-ltxt').on("input", () => switchTheme(2))
-$('#-theme-settings-reset').click(() => {
+function switchTheme(newTheme = theme, custom = false) {
+    if (theme !== newTheme) {
+        theme = newTheme
+        localStorage.setItem("pref-appearance-theme", theme)
+    } else {
+        $("#-pref-appearance-theme").val(newTheme)
+        if (custom) {
+            localStorage.setItem("pref-appearance-custom-background", themes.custom.background)
+            localStorage.setItem("pref-appearance-custom-text", themes.custom.text)
+            localStorage.setItem("pref-appearance-custom-header", themes.custom.header)
+            localStorage.setItem("pref-appearance-custom-nav", themes.custom.nav)
+        } else {
+            $("#-pref-appearance-custom-background").val(themes.custom.background)
+            $("#-pref-appearance-custom-text").val(themes.custom.text)
+            $("#-pref-appearance-custom-header").val(themes.custom.header)
+            $("#-pref-appearance-custom-nav").val(themes.custom.nav)
+        }
+        themes.custom.background = $("#-pref-appearance-custom-background").val()
+        themes.custom.text = $("#-pref-appearance-custom-text").val()
+        themes.custom.header = $("#-pref-appearance-custom-header").val()
+        themes.custom.nav = $("#-pref-appearance-custom-nav").val()
+    } 
+    if (newTheme === "custom") $("#-pref-appearance-custom").show()//.css("opacity", "100%")
+    else $("#-pref-appearance-custom").hide()//.css("opacity", "35%")
+
+    $("body").css("background-color", themes[newTheme].background)
+    $("body").css("color", themes[newTheme].text)
+    $("header").css("background-color", themes[newTheme].header)
+    $("nav").css("background-color", themes[newTheme].nav)
+    $("nav").css("color", themes[newTheme].text)
+    $(".sidenav").css("background-color", themes[newTheme].header)
+    $(".modal").css("background-color", themes[newTheme].header)
+    $(".modal-footer").css("background-color", themes[newTheme].header)
+    $(".dropdown-content").css("background-color", themes[newTheme].nav)
+    $(".dropdown-content li>span").css("color", themes[newTheme].text)
+}
+
+switchTheme()
+
+function prefAppearance() {
+    $(".modal#-pref-appearance").modal("open")
+}
+
+$("#-pref-appearance-theme").change(() => switchTheme($("#-pref-appearance-theme").val()))
+$("#-pref-appearance-custom-background").change(() => switchTheme(theme, true))
+$("#-pref-appearance-custom-text").change(() => switchTheme(theme, true))
+$("#-pref-appearance-custom-header").change(() => switchTheme(theme, true))
+$("#-pref-appearance-custom-nav").change(() => switchTheme(theme, true))
+$("#-pref-appearance-reset").click(() => {
     reset++
     if (reset >= 2) {
-        localStorage.clear()
-        location.reload()
+        $("#-pref-appearance-reset").html(`<div class="preloader-wrapper small active" style="width: 24px; height: 24px; top: 6px;">
+            <div class="spinner-layer" style="border-color: #fff;">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                    <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>`)
+        $("#-pref-appearance-reset-message").text("Resetting...")
+        localStorage.clear() // will change if we add more preferences
+        setTimeout(() => location.reload(), 1000)
     } else {
-        $('#-theme-settings-reset').text("Confirm")
-        $('#-theme-settings-reset').addClass("darken-1")
-        $('#-theme-settings-reset-message').text("Tap again to confirm")
+        $("#-pref-appearance-reset").text("Confirm")
+        $("#-pref-appearance-reset-message").text("Tap again to confirm")
     }
     setTimeout(() => {
+        if (reset >= 2) return
         reset = 0
-        $('#-theme-settings-reset').text("Reset")
-        $('#-theme-settings-reset').removeClass("darken-1")
-        $('#-theme-settings-reset-message').text("Reset theme messages")
+        $("#-pref-appearance-reset").text("Reset")
+        $("#-pref-appearance-reset-message").text("Reset appearance preferences")
     }, 3000)
 })
-$('.-theme-settings').click(themeSettings)
-
-setTimeout(() => toggleAnimate(false), 500)
+$(".-pref-appearance").click(prefAppearance)
