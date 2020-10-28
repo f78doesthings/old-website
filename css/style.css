@@ -13,7 +13,7 @@ nav {
     background-color: #555;
 }
 
-.sidenav a, .sidenav i.material-icons {
+.sidenav a, .sidenav i.material-icons, .sidenav i.fas, .sidenav i.fab {
     color: inherit !important;
 }
 
@@ -49,6 +49,20 @@ nav a {
 
 .brand-logo img {
     height: 24px;
+}
+
+.sidenav i.fas, .sidenav i.fab {
+    font-size: 24px;
+}
+
+a[target=_blank]::after {
+    margin: 0 .5em;
+    content: "\f35d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    opacity: 35%;
+    font-size: .8em;
+    vertical-align: top;
 }
 
 /* Overrides for modals */
