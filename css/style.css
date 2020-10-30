@@ -1,16 +1,21 @@
 body {
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
     /* fallback colours */
-    background-color: #333;
-    color: #fff;
+    background-color: var(--background, #333);
+    color: var(--text, #eee);
 }
 
 header {
-    background-color: #444;
+    background-color: var(--header, #444);
 }
 
 nav {
-    background-color: #555;
+    background-color: var(--nav, #555e);
+}
+
+.sidenav {
+    background-color: var(--popup, #444);
+    height: 100% !important;
 }
 
 .sidenav a, .sidenav i.material-icons, .sidenav i.fas, .sidenav i.fab {
@@ -39,12 +44,7 @@ h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader {
 }
 
 nav a {
-    color: inherit !important;
-}
-
-.input[type=color] {
-    border: none;
-    background-color: #000;
+    color: var(--text, #eee) !important;
 }
 
 .brand-logo img {
@@ -66,9 +66,19 @@ a[target=_blank]::after {
 }
 
 /* Overrides for modals */
-.modal.bottom-sheet {
-    max-height: 100%;
+.modal {
+    background-color: var(--popup, #444e);
 }
+
+.modal .modal-footer {
+    background-color: transparent;
+}
+
+.modal.bottom-sheet, .modal.bottom-sheet .modal-footer {
+    max-height: 75%;
+    text-align: center;
+}
+
 .modal table {
     max-width: 600px;
     margin: auto;
@@ -82,7 +92,6 @@ a[target=_blank]::after {
 .modal td {
     padding: 5px;
     text-align: center;
-    
 }
 
 .modal td p {
@@ -90,22 +99,33 @@ a[target=_blank]::after {
     margin: 0;
 }
 
-.modal td .switch label {
+.modal td label {
     justify-content: center;
+    color: var(--text);
 }
 
-.modal .select-dropdown {
+.select-dropdown {
     color: inherit;
 }
 
-.modal .dropdown-content li {
+input, input:disabled {
+    color: inherit !important;
+}
+
+.dropdown-content {
+    background-color: var(--dropdown, #555);
+    max-height: 25vh;
+}
+
+.dropdown-content li {
     min-height: unset;
 }
 
-.modal .dropdown-content li>span {
+.dropdown-content li>span {
     padding: 8px 16px;
+    color: var(--text, #eee);
 }
 
-.modal .select-wrapper .caret {
+.select-wrapper .caret {
     fill: #999;
 }

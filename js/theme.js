@@ -1,71 +1,36 @@
 let theme = localStorage.getItem("pref-appearance-theme") || "dark"
-let animate = localStorage.getItem("pref-appearance-animate") || "false"
+let custom = localStorage.getItem("pref-appearance-custom")
 
 let time = 0
 let reset = 0
 
-const themes = {
-    dark: {
-        background: "#333",
-        text: "#eee",
-        header: "#444",
-        nav: "#555",
-    },
-    light: {
-        background: "#fff",
-        text: "#222",
-        header: "#eee",
-        nav: "#ddd",
-    },
-    amoled: {
-        background: "#000",
-        text: "#ccc",
-        header: "#111",
-        nav: "#222",
-    },
-    custom: {
-        background: localStorage.getItem("pref-appearance-custom-background") || "#ffffff",
-        text: localStorage.getItem("pref-appearance-custom-text") || "#222222",
-        header: localStorage.getItem("pref-appearance-custom-header") || "#eeeeee",
-        nav: localStorage.getItem("pref-appearance-custom-nav") || "#dddddd",
-    },
-}
-
-function switchTheme(newTheme = theme, custom = false) {
-    if (theme !== newTheme) {
-        theme = newTheme
-        localStorage.setItem("pref-appearance-theme", theme)
-    } else {
+function switchTheme(newTheme = theme) {
+    try {
+        if (theme === "custom") $(`#theme-custom`).attr("disabled", true)
+        else $(`link[href*="/css/theme/${theme}.css"]`).attr("disabled", true)
+        if (newTheme === "custom") $("link#theme-custom").attr("disabled", false)
+        else $(`link[href*="/css/theme/${newTheme}.css"]`).attr("disabled", false)
         $("#-pref-appearance-theme").val(newTheme)
-        if (custom) {
-            localStorage.setItem("pref-appearance-custom-background", themes.custom.background)
-            localStorage.setItem("pref-appearance-custom-text", themes.custom.text)
-            localStorage.setItem("pref-appearance-custom-header", themes.custom.header)
-            localStorage.setItem("pref-appearance-custom-nav", themes.custom.nav)
-        } else {
-            $("#-pref-appearance-custom-background").val(themes.custom.background)
-            $("#-pref-appearance-custom-text").val(themes.custom.text)
-            $("#-pref-appearance-custom-header").val(themes.custom.header)
-            $("#-pref-appearance-custom-nav").val(themes.custom.nav)
+        if (theme !== newTheme) {
+            theme = newTheme
+            localStorage.setItem("pref-appearance-theme", theme)
+            $("#-pref-appearance-url").val(custom)
         }
-        themes.custom.background = $("#-pref-appearance-custom-background").val()
-        themes.custom.text = $("#-pref-appearance-custom-text").val()
-        themes.custom.header = $("#-pref-appearance-custom-header").val()
-        themes.custom.nav = $("#-pref-appearance-custom-nav").val()
-    } 
-    if (newTheme === "custom") $("#-pref-appearance-custom").show()//.css("opacity", "100%")
-    else $("#-pref-appearance-custom").hide()//.css("opacity", "35%")
+        if (theme === "custom") {
+            // may be dangerous
+            $("#-pref-appearance-url").attr("disabled", false)
+            $("#-pref-appearance-custom").css("opacity", "1")
 
-    $("body").css("background-color", themes[newTheme].background)
-    $("body").css("color", themes[newTheme].text)
-    $("header").css("background-color", themes[newTheme].header)
-    $("nav").css("background-color", themes[newTheme].nav)
-    $("nav").css("color", themes[newTheme].text)
-    $(".sidenav").css("background-color", themes[newTheme].header)
-    $(".modal").css("background-color", themes[newTheme].header)
-    $(".modal-footer").css("background-color", themes[newTheme].header)
-    $(".dropdown-content").css("background-color", themes[newTheme].nav)
-    $(".dropdown-content li>span").css("color", themes[newTheme].text)
+            custom = $("#-pref-appearance-url").val()
+            $(`#theme-custom`).attr("href", custom)
+            localStorage.setItem("pref-appearance-custom", custom)
+        } else {
+            $("#-pref-appearance-url")[0].disabled = true
+            $("#-pref-appearance-custom").css("opacity", ".5")
+        }
+    } catch(e) {
+        console.error(e)
+    }
 }
 
 switchTheme()
@@ -75,10 +40,7 @@ function prefAppearance() {
 }
 
 $("#-pref-appearance-theme").change(() => switchTheme($("#-pref-appearance-theme").val()))
-$("#-pref-appearance-custom-background").change(() => switchTheme(theme, true))
-$("#-pref-appearance-custom-text").change(() => switchTheme(theme, true))
-$("#-pref-appearance-custom-header").change(() => switchTheme(theme, true))
-$("#-pref-appearance-custom-nav").change(() => switchTheme(theme, true))
+$("#-pref-appearance-url").change(() => switchTheme("custom"))
 $("#-pref-appearance-reset").click(() => {
     reset++
     if (reset >= 2) {

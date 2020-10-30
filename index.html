@@ -16,6 +16,14 @@
     <meta property="og:title" content="Work in Progress">
     <meta property="og:image" content="/img/favicon.png">
     <meta name="theme-color" content="#F1EDE5">
+
+    <!-- Themes -->
+    <link rel="stylesheet" href="/css/theme/dark.css" disabled>
+    <link rel="stylesheet" href="/css/theme/light.css" disabled>
+    <link rel="stylesheet" href="/css/theme/amoled.css" disabled>
+    <link rel="stylesheet" href="/css/theme/ruby.css" disabled>
+    <link rel="stylesheet" href="/css/theme/cool.css" disabled>
+    <link rel="stylesheet" href="" id="theme-custom" disabled>
     
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -33,11 +41,11 @@
             <div class="nav-wrapper container">
                 <a href="/" class="brand-logo center"><img src="/img/favicon.png" alt="f78" class="circle"> f78</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="#" class="waves-effect">placeholder 1</a></li>
-                    <li><a href="#" class="waves-effect">placeholder 2</a></li>
+                    <li><a href="javascript:void(0)" class="waves-effect">placeholder 1</a></li>
+                    <li><a href="javascript:void(0)" class="waves-effect">placeholder 2</a></li>
                 </ul>
                 
-                <a class="sidenav-trigger show-on-large waves-effect" href="#!" data-target="sidenav">
+                <a class="sidenav-trigger show-on-large waves-effect" href="javascript:void(0)" data-target="sidenav">
                     <i class="material-icons">menu</i>
                 </a>
             </div>
@@ -45,8 +53,8 @@
     </div>
     <ul id="sidenav" class="sidenav">
         <li><a class="subheader">Pages</a></li>
-        <li><a href="#" class="waves-effect">placeholder 1</a></li>
-        <li><a href="#" class="waves-effect">placeholder 2</a></li>
+        <li><a href="javascript:void(0)" class="waves-effect">placeholder 1</a></li>
+        <li><a href="javascript:void(0)" class="waves-effect">placeholder 2</a></li>
         <li><a class="subheader">External Links</a></li>
         <li><a href="https://discord.gg/YDkEsf9" target="_blank" class="waves-effect"><i class="fab fa-discord"></i>Discord</a></li>
         <li><a href="https://twitter.com/f78ok" target="_blank" class="waves-effect"><i class="fab fa-twitter"></i>Twitter</a></li>
@@ -59,39 +67,25 @@
     </ul>
     <div id="-pref-appearance" class="modal bottom-sheet">
         <div class="modal-content">
-            <h4 class="center">Appearance Preferences (beta)</h4>
+            <h4>Appearance Preferences (beta)</h4>
+            <p>Change preferences regarding this website&apos;s appearance here.</p>
             <table><tbody>
                 <tr>
                     <td><p>Theme</p></td>
                     <td>
                         <select id="-pref-appearance-theme">
-                            <option value="dark" selected>Dark</option>
                             <option value="light">Light</option>
-                            <option value="amoled">AMOLED</option>
+                            <option value="dark">Dark (default)</option>
+                            <option value="amoled">Midnight (AMOLED)</option>
+                            <option value="ruby">Ruby</option>
+                            <option value="cool">Cool</option>
                             <option value="custom">Custom</option>
                         </select>
                     </td>
                 </tr>
                 <tr id="-pref-appearance-custom">
-                    <td><p>Custom theme colours</p></td>
-                    <td><table><tbody>
-                        <tr>
-                            <td><p><label>Background</label></p></td>
-                            <td><input type="color" id="-pref-appearance-custom-background" value="#ffffff"></td>
-                        </tr>
-                        <tr>
-                            <td><p><label>Text</label></p></td>
-                            <td><input type="color" id="-pref-appearance-custom-text" value="#222222"></td>
-                        </tr>
-                        <tr>
-                            <td><p><label>Header and Popups</label></p></td>
-                            <td><input type="color" id="-pref-appearance-custom-header" value="#eeeeee"></td>
-                        </tr>
-                        <tr>
-                            <td><p><label>Navbar and Dropdowns</label></p></td>
-                            <td><input type="color" id="-pref-appearance-custom-nav" value="#dddddd"></td>
-                        </tr>
-                    </tbody></table></td>
+                    <td><p>Custom theme URL</p></td>
+                    <td><input type="url" id="-pref-appearance-url"></td>
                 </tr>
                 <tr>
                     <td><p id="-pref-appearance-reset-message">Reset appearance preferences</p></td>
@@ -101,8 +95,8 @@
                 </tr>
             </tbody></table>
         </div>
-        <div class="modal-footer" style="text-align: center;">
-            <a href="#!" class="modal-close waves-effect btn red">Close</a>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" class="modal-close waves-effect btn red">Close</a>
         </div>
     </div>
 

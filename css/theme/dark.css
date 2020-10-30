@@ -1,0 +1,14 @@
+:root {
+    /* The body's background colour. */
+    --background: #3c3b3a;
+    /* The text colour. */
+    --text: #efeeed;
+    /* The colour of the header. */
+    --header: #494847;
+    /* The colour of the navigation bar. */
+    --nav: #585756f0;
+    /* The colour for things like the menu (sidenav) and popups (modals) */
+    --popup: #444342f0;
+    /* The background colour of dropdowns. */
+    --dropdown: #525150;
+}
