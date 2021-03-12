@@ -1,14 +1,20 @@
 :root {
     /* The body's background colour. */
-    --background: #3c3b3a;
+    --body: #2c2b2a;
+    /* The main background colour. */
+    --background: #0007;
+    /* The body's background image. */
+    --background-image: url("/img/720.png");
     /* The text colour. */
     --text: #efeeed;
     /* The colour of the header. */
-    --header: #494847;
+    --header: #0003;
     /* The colour of the navigation bar. */
-    --nav: #585756f0;
+    --nav: #222120ef;
+    /* The colour of the footer. */
+    --footer: #0009;
     /* The colour for things like the menu (sidenav) and popups (modals) */
-    --popup: #444342f0;
+    --popup: #292827;
     /* The background colour of dropdowns. */
-    --dropdown: #525150;
+    --dropdown: #333231;
 }

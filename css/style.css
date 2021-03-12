@@ -1,20 +1,69 @@
+/* Default theme variables */
+:root {
+    /* The body's background colour. */
+    --body: #393837;
+    /* The main background colour. */
+    --background: #393837;
+    /* The body's background image. */
+    --background-image: none;
+    /* The text colour. */
+    --text: #efeeed;
+    /* The colour of the header. */
+    --header: #4c4b4a;
+    /* The colour of the navigation bar. */
+    --nav: #292827f0;
+    /* The colour of the footer. */
+    --footer: #292827;
+    /* The colour for things like the menu (sidenav) and popups (modals) */
+    --popup: #323130;
+    /* The background colour of dropdowns. */
+    --dropdown: #434241;
+}
+
 body {
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    /* fallback colours */
-    background-color: var(--background, #333);
-    color: var(--text, #eee);
+    background-color: var(--body);
+    color: var(--text);
+    background-image: var(--background-image, none);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 header {
-    background-color: var(--header, #444);
+    background-color: var(--header);
 }
 
 nav {
-    background-color: var(--nav, #555e);
+    background-color: var(--nav);
+}
+
+main {
+    background-color: var(--background);
+    flex: 1 0 auto;
+}
+
+.page-footer {
+    background-color: var(--footer);
+}
+
+.page-footer a {
+    color: inherit;
+}
+
+.page-footer .footer-copyright {
+    background-color: #0002;
 }
 
 .sidenav {
-    background-color: var(--popup, #444);
+    background-color: var(--popup);
     height: 100% !important;
 }
 
@@ -32,19 +81,18 @@ nav {
 }
 
 a.sidenav-trigger {
-    width: 56px;
+    width: 60px;
     text-align: center;
     margin-left: 0;
-    border-radius: 32px;
 }
 
 h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader {
-    font-family: Montserrat, sans-serif;
-    font-weight: 400;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
 }
 
 nav a {
-    color: var(--text, #eee) !important;
+    color: var(--text) !important;
 }
 
 .brand-logo img {
@@ -58,7 +106,7 @@ nav a {
 a[target=_blank]::after {
     margin: 0 .5em;
     content: "\f35d";
-    font-family: "Font Awesome 5 Free";
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     opacity: 35%;
     font-size: .8em;
@@ -67,7 +115,7 @@ a[target=_blank]::after {
 
 /* Overrides for modals */
 .modal {
-    background-color: var(--popup, #444e);
+    background-color: var(--popup);
 }
 
 .modal .modal-footer {
@@ -113,7 +161,7 @@ input, input:disabled {
 }
 
 .dropdown-content {
-    background-color: var(--dropdown, #555);
+    background-color: var(--dropdown);
     max-height: 25vh;
 }
 
@@ -123,9 +171,9 @@ input, input:disabled {
 
 .dropdown-content li>span {
     padding: 8px 16px;
-    color: var(--text, #eee);
+    color: var(--text);
 }
 
 .select-wrapper .caret {
-    fill: #999;
+    fill: #9e9e9e;
 }
