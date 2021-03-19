@@ -7,9 +7,9 @@ let reset = 0
 function switchTheme(newTheme = theme) {
     try {
         if (theme === "custom") $(`#theme-custom`).attr("disabled", true)
-        else $(`link[href*="/css/theme/${theme}.css"]`).attr("disabled", true)
+        else $(`link[href*="/assets/css/themes/${theme}.css"]`).attr("disabled", true)
         if (newTheme === "custom") $("link#theme-custom").attr("disabled", false)
-        else $(`link[href*="/css/theme/${newTheme}.css"]`).attr("disabled", false)
+        else $(`link[href*="/assets/css/themes/${newTheme}.css"]`).attr("disabled", false)
         $("#-pref-appearance-theme").val(newTheme)
         if (theme !== newTheme) {
             theme = newTheme
