@@ -1,0 +1,36 @@
+:root {
+    /* The body's background colour. */
+    --body: #0c0b0a;
+    /* The main background colour. */
+    --background: transparent;
+    /* The body's background image. */
+    --background-image: none;
+    /* The text colour. */
+    --text: #e3e2e1;
+    /* The colour of the header. */
+    --header: #131211;
+    /* The colour of the navigation bar. */
+    --nav: #1c1b1af0;
+    /* The colour of the footer. */
+    --footer: #0f0e0d;
+    /* The colour for things like the menu (sidenav) and popups (modals) */
+    --popup: #191817;
+    /* The background colour of dropdowns. */
+    --dropdown: #222120;
+
+    /* Theme-specific variables */
+    --gradient-a: #a06ac8;
+    --gradient-b: #c86f6a;
+    --gradient-size: 3px;
+}
+
+nav::after {
+    display: block;
+    content: '';
+    height: var(--gradient-size);
+    background: linear-gradient(to right, var(--gradient-a), var(--gradient-b));
+}
+
+header {
+    text-shadow: 1px 1px 10px #0006;
+}

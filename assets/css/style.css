@@ -52,6 +52,7 @@ main {
 
 .page-footer {
     background-color: var(--footer);
+    color: inherit;
 }
 
 .page-footer a {

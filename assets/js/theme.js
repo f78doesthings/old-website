@@ -1,4 +1,4 @@
-let theme = localStorage.getItem("pref-appearance-theme") || "dark"
+let theme = localStorage.getItem("pref-appearance-theme") || "neon"
 let custom = localStorage.getItem("pref-appearance-custom")
 
 let time = 0
