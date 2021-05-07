@@ -1,0 +1,85 @@
+:root {
+    /* The body's background colour. */
+    --body: hsl(30, 5%, 5%);
+    /* The main background colour. */
+    --background: transparent;
+    /* The body's background image. */
+    --background-image: none;
+    /* The text colour. */
+    --text: hsl(30, 5%, 90%);
+    /* The colour of the header. */
+    --header: hsl(30, 5%, 8%);
+    /* The colour of the navigation bar. */
+    --nav: hsla(30, 5%, 10%, 0.95);
+    /* The colour of the footer. */
+    --footer: hsla(30, 5%, 7%);
+    /* The colour for things like the menu (sidenav) and popups (modals) */
+    --popup: hsl(30, 5%, 9%);
+    /* The background colour of dropdowns. */
+    --dropdown: hsl(30, 5%, 12%);
+
+    /* Theme-specific variables */
+    --gradient-a: hsl(280, 45%, 60%);
+    --gradient-b: hsl(10, 45%, 60%);
+    --gradient-size: 4px;
+    --gradient-glow-size: 4px;
+    --gradient-glow-amt: 83%;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        /* The body's background colour. */
+        --body: hsl(30, 5%, 100%);
+        /* The main background colour. */
+        --background: transparent;
+        /* The body's background image. */
+        --background-image: none;
+        /* The text colour. */
+        --text: hsl(30, 5%, 10%);
+        /* The colour of the header. */
+        --header: hsl(30, 5%, 96%);
+        /* The colour of the navigation bar. */
+        --nav: hsla(30, 5%, 92%, 0.95);
+        /* The colour of the footer. */
+        --footer: hsla(30, 5%, 93%);
+        /* The colour for things like the menu (sidenav) and popups (modals) */
+        --popup: hsl(30, 5%, 95%);
+        /* The background colour of dropdowns. */
+        --dropdown: hsl(30, 5%, 100%);
+
+        /* Theme-specific variables */
+        --gradient-a: hsl(290, 75%, 75%);
+        --gradient-b: hsl(10, 75%, 75%);
+        --gradient-size: 4px;
+        --gradient-glow-size: 4px;
+        --gradient-glow-amt: 100%;
+    }
+}
+
+header h1 {
+    text-shadow: none;
+}
+
+nav {
+    box-shadow: none;
+}
+
+nav::before, nav::after {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    display: block;
+    content: '';
+    width: 100%;
+    height: var(--gradient-size);
+    background: linear-gradient(to right, var(--gradient-a), var(--gradient-b));
+}
+
+nav::before {
+    filter: blur(var(--gradient-glow-size));
+    opacity: var(--gradient-glow-amt);
+}
+
+header {
+    text-shadow: 1px 1px 10px #0006;
+}

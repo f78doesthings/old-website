@@ -1,8 +1,10 @@
-let theme = localStorage.getItem("pref-appearance-theme") || "neon"
+let theme = localStorage.getItem("pref-appearance-theme") || "neon-auto"
 let custom = localStorage.getItem("pref-appearance-custom")
 
 let time = 0
 let reset = 0
+
+if (window.M) M.AutoInit();
 
 function switchTheme(newTheme = theme) {
     try {

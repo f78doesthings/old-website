@@ -30,9 +30,15 @@
     <link rel="stylesheet" href="/assets/css/style.css">
 
     <!-- Themes -->
-    <link rel="stylesheet" href="/assets/css/themes/neon.css" disabled>
-    <link rel="stylesheet" href="/assets/css/themes/fancy.css" disabled>
+    <link rel="stylesheet" href="/assets/css/themes/neon-dark.css" disabled>
+    <link rel="stylesheet" href="/assets/css/themes/neon-auto.css" disabled>
+    <link rel="stylesheet" href="/assets/css/themes/fancy-dark.css" disabled>
     <link rel="stylesheet" href="" id="theme-custom" disabled>
+
+    <!-- JavaScript -->
+    <script defer src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script defer src="/assets/js/main.js"></script>
 </head>
 
 <body>
@@ -83,7 +89,7 @@
     </ul>
     <div id="-pref-appearance" class="modal bottom-sheet">
         <div class="modal-content">
-            <h4>Appearance Preferences (beta)</h4>
+            <h4>Appearance Preferences</h4>
             <p>Change preferences regarding this website&apos;s appearance here.</p>
             <table>
                 <tbody>
@@ -93,8 +99,10 @@
                         </td>
                         <td>
                             <select id="-pref-appearance-theme">
-                                <option value="neon">Neon (default)</option>
-                                <option value="fancy">Fancy</option>
+                                <option value="neon-auto">Neon Auto (default)</option>
+                                <option value="neon-dark">Neon Dark</option>
+                                <option value="fancy-dark">Fancy Dark</option>
+                                <option value="custom">Custom</option>
                             </select>
                         </td>
                     </tr>
@@ -159,18 +167,11 @@
         </div>
         <div class="footer-copyright">
             <div class="container">
-                <p class="right">Last updated: 27 April 2021</p>
+                <p class="right">Last updated: 7 May 2021</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        if (window.M) M.AutoInit();
-    </script>
-    <script src="/assets/js/theme.js"></script>
 </body>
 
 </html>
