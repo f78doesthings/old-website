@@ -1,31 +1,31 @@
 :root {
     /* The body's background colour. */
-    --body: hsl(30, 5%, 6%);
+    --body: hsl(30, 5%, 100%);
     /* The main background colour. */
     --background: transparent;
     /* The body's background image. */
     --background-image: none;
     /* The text colour. */
-    --text: hsl(30, 5%, 90%);
+    --text: hsl(30, 5%, 10%);
     /* The colour of the header. */
-    --header: hsl(30, 5%, 7%);
+    --header: hsl(30, 5%, 96%);
     /* The colour of the navigation bar. */
-    --nav: hsla(30, 5%, 10%, 0.95);
+    --nav: hsla(30, 5%, 92%, 0.95);
     /* The colour of the footer. */
-    --footer: hsla(30, 5%, 8%);
+    --footer: hsla(30, 5%, 93%);
     /* The colour for things like the menu (sidenav) and popups (modals) */
-    --popup: hsl(30, 5%, 9%);
+    --popup: hsl(30, 5%, 95%);
     /* The background colour of dropdowns. */
-    --dropdown: hsl(30, 5%, 12%);
+    --dropdown: hsl(30, 5%, 100%);
 
-    --accent: hsl(5, 64%, 56%);
+    --accent: hsl(5, 60%, 52%);
 
     /* Theme-specific variables */
-    --gradient-a: #a06ac8;
-    --gradient-b: #c86f6a;
+    --gradient-a: hsl(290, 75%, 75%);
+    --gradient-b: hsl(10, 75%, 75%);
     --gradient-size: 4px;
     --gradient-glow-size: 4px;
-    --gradient-glow-amt: 83%;
+    --gradient-glow-amt: 100%;
 }
 
 .btn-large {

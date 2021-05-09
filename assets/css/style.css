@@ -18,6 +18,8 @@
     --popup: #323130;
     /* The background colour of dropdowns. */
     --dropdown: #434241;
+    /* The default colour for elements like buttons. */
+    --accent: #da444f;
 }
 
 body {
@@ -35,6 +37,27 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+}
+
+.btn,        .btn-large,        .btn-small,
+.btn:hover,  .btn-large:hover,  .btn-small:hover,
+.btn:active, .btn-large:active, .btn-small:active,
+.btn:focus,  .btn-large:focus,  .btn-small:focus {
+    background: var(--accent);
+}
+
+:not(nav) a.sidenav-trigger {
+    width: auto;
+}
+
+.btn-large {
+    border-radius: 8px;
+    font-size: 1.25rem;
+}
+
+.page-footer .footer-copyright p {
+    color: var(--text);
+    opacity: .8;
 }
 
 header {
@@ -87,7 +110,7 @@ a.sidenav-trigger {
     margin-left: 0;
 }
 
-h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader {
+h1, h2, h3, h4, h5, h6, .brand-logo, .sidenav .subheader, .btn, .btn-small, .btn-large {
     font-family: Poppins, sans-serif;
 }
 
