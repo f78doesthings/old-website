@@ -1,24 +1,24 @@
 :root {
-    /* The body's background colour. */
-    --body: #2c2b2a;
-    /* The main background colour. */
-    --background: #0007;
-    /* The body's background image. */
-    --background-image: url("/assets/img/720.png");
-    /* The text colour. */
-    --text: #efeeed;
-    /* The colour of the header. */
-    --header: #0003;
-    /* The colour of the navigation bar. */
-    --nav: #1f1e1df0;
-    /* The colour of the footer. */
-    --footer: #0009;
-    /* The colour for things like the menu (sidenav) and popups (modals) */
-    --popup: #292827;
-    /* The background colour of dropdowns. */
-    --dropdown: #333231;
+  /* The body's background colour. */
+  --body: #2c2b2a;
+  /* The main background colour. */
+  --background: #0007;
+  /* The body's background image. */
+  --background-image: url("/assets/img/720.png");
+  /* The text colour. */
+  --text: #efeeed;
+  /* The colour of the header. */
+  --header: #0003;
+  /* The colour of the navigation bar. */
+  --nav: #1f1e1df0;
+  /* The colour of the footer. */
+  --footer: #0009;
+  /* The colour for things like the menu (sidenav) and popups (modals) */
+  --popup: #292827;
+  /* The background colour of dropdowns. */
+  --dropdown: #333231;
 }
 
 header {
-    text-shadow: 1px 1px 10px #0006;
+  text-shadow: 1px 1px 10px #0006;
 }

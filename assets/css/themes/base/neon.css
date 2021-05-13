@@ -1,0 +1,99 @@
+/* Navbar */
+nav {
+  box-shadow: none;
+}
+
+nav::before,
+nav::after {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  display: block;
+  content: "";
+  width: 100%;
+  height: var(--gradient-size);
+  background: linear-gradient(to right, var(--gradient-a), var(--gradient-b));
+}
+
+nav::before {
+  filter: blur(var(--gradient-glow-size));
+  opacity: var(--gradient-glow-amt);
+}
+
+/* Header */
+header {
+  text-shadow: 1px 1px 10px #0006;
+}
+
+header h1 {
+  text-shadow: none;
+}
+
+/* Large button */
+.btn-large {
+  font-size: 1.25rem;
+  background: transparent;
+  border: var(--gradient-size) solid var(--accent);
+  color: var(--accent);
+  border-radius: 8px;
+  height: 48px;
+  line-height: 40px;
+
+  box-shadow: 0 0 8px var(--accent), inset 0 0 8px var(--accent);
+  text-shadow: 0 0 8px var(--accent);
+
+  position: relative;
+  transition: 0.2s color, 0.2s opacity;
+}
+
+.btn-large::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--accent);
+  top: 125%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(64px) rotateX(30deg) scale(1, 0.35);
+  filter: blur(30px);
+  opacity: 0.5;
+  transition: 0.15s opacity;
+  z-index: -1;
+}
+
+.btn-large::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--accent);
+  box-shadow: 0 0 32px var(--accent);
+  opacity: 0;
+  transition: 0.15s opacity;
+  z-index: -1;
+}
+
+.btn-large:hover,
+.btn-large:focus {
+  background: transparent;
+  box-shadow: 0 0 8px var(--accent), inset 0 0 8px var(--accent);
+  color: var(--popup);
+}
+
+.btn-large:hover::after,
+.btn-large:focus::after {
+  opacity: 1;
+}
+
+.btn-large:hover::before,
+.btn-large:focus::before {
+  opacity: 0.75;
+}
+
+.btn-large:active {
+  opacity: 0.83;
+}
